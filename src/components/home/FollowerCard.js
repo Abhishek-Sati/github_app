@@ -21,9 +21,15 @@ export default memo(function FollowerCard({ data = {} }) {
       });
     try {
       dispatch({ type: "loader", payload: { value: true } });
-      const { data: value } = await axios.get(repos_url);
-      dispatch({ type: "repos", payload: { value } });
-      dispatch({ type: "searched_user", payload: { value: login } });
+      const { data } = await axios.get(repos_url);
+      dispatch({
+        type: "update_repos",
+        payload: {
+          repos: data,
+          followers: [],
+          searched_user: login,
+        },
+      });
       history.push("/");
     } catch (err) {
       dispatch({ type: "loader", payload: { value: false } });

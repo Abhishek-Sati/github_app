@@ -33,6 +33,11 @@ export const Reducer = (draft, action) => {
       draft.repos = payload.value;
       draft.loader = false;
       return;
+    case "update_repos":
+      draft.repos = payload.repos;
+      draft.followers = payload.followers;
+      draft.searched_user = payload.searched_user;
+      draft.loader = false;
     default:
       return;
   }
