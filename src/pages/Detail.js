@@ -11,7 +11,23 @@ export default memo(function Detail({ location: { state: { data } = {} } }) {
   const categories = ["Code review", "IDE's", "Free", "Paid"];
   return (
     <Fragment>
-      <h1 className="detail_container__heading"> Repository Details </h1>
+      <section className="breadcrumb_wrapper">
+        <ul className="breadcrumb">
+          <li>
+            <a
+              href=""
+              onClick={(e) => {
+                e.preventDefault();
+                history.push("/");
+              }}
+            >
+              Home
+            </a>
+          </li>
+          <li>Detail</li>
+        </ul>
+        <h1 className="detail_container__heading"> Repository Details </h1>
+      </section>
       <section className="detail_container">
         <section className="detail_container__lft_child">
           <img className="detail_container__lft_child__img" src={owner.avatar_url} />

@@ -79,6 +79,10 @@ button {
   outline: none;
   border-radius: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    box-shadow: $box-shadow;
+  }
 }
 
 .secondary-btn {
@@ -91,6 +95,10 @@ button {
   border: 0.1rem solid $primaryColor;
   outline: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    box-shadow: $box-shadow;
+  }
 }
 
 .success-btn {
@@ -104,4 +112,8 @@ button {
   height: unset;
   outline: none;
   cursor: pointer;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    box-shadow: $box-shadow;
+  }
 }

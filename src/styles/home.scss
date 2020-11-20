@@ -24,6 +24,7 @@
       font-size: 1.8rem;
       margin-left: 0.5rem;
       border-radius: 0.5rem;
+      transition: all 0.3s ease-in-out;
       &:hover {
         background-color: $white;
         color: $primaryColor;

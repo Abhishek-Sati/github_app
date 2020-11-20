@@ -9,8 +9,10 @@ import RepoCard from "components/home/RepoCard";
 export default memo(function Home() {
   const inputRef = useRef();
   const history = useHistory();
-  const { state: { searched_user, repos = [], loader } = {}, dispatch } = useContext(Context);
-  const followers = repos?.[0]?.owner?.followers_url;
+  const { state: { searched_user, repos = [], loader, followers } = {}, dispatch } = useContext(
+    Context
+  );
+  const followers_url = repos?.[0]?.owner?.followers_url;
 
   useEffect(() => {
     inputRef.current.focus();
@@ -37,8 +39,9 @@ export default memo(function Home() {
 
   const handleShowFollowers = async () => {
     try {
+      if (followers.length) return history.push(`/${repos[0].owner.id}/followers`);
       dispatch({ type: "loader", payload: { value: true } });
-      const { data: value } = await axios.get(followers);
+      const { data: value } = await axios.get(followers_url);
       dispatch({ type: "followers", payload: { value } });
       history.push(`/${repos[0].owner.id}/followers`);
     } catch (err) {
@@ -74,7 +77,7 @@ export default memo(function Home() {
         </button>
       </section>
       <Alert />
-      {followers ? (
+      {followers_url ? (
         <button
           className="secondary-btn home_container__follower_btn"
           onClick={handleShowFollowers}

@@ -72,6 +72,7 @@
       width: fit-content;
       padding: 0.8rem 2rem;
       border-radius: 0.2rem;
+      transition: all 0.3s ease-in-out;
       &:hover {
         background-color: $white;
         color: $successColor;
